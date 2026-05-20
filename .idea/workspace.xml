@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="495ab933-4558-4734-81e3-6426043ca98c" name="Changes" comment="first commit">
+    <list default="true" id="495ab933-4558-4734-81e3-6426043ca98c" name="Changes" comment="added starting to build cycle">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/chip8.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/chip8.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/gui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,61 +37,61 @@
 }</component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.8486433600472214E-5" />
-      <entry key="MS500" value="0.1517099693587671" />
-      <entry key="S2" value="1.0432043454378177" />
-      <entry key="S5" value="2.204627463564719" />
-      <entry key="S10" value="4.442612232394385" />
-      <entry key="S30" value="11.346559612917924" />
-      <entry key="S60" value="18.50876296627781" />
-      <entry key="M2" value="30.163855137961495" />
-      <entry key="M5" value="55.50340157653676" />
-      <entry key="M10" value="78.0617570221408" />
-      <entry key="M15" value="89.88051235646243" />
-      <entry key="M30" value="106.64698158514457" />
-      <entry key="H1" value="121.35217179949542" />
-      <entry key="H2" value="134.01286737459978" />
-      <entry key="H4" value="143.07708669034886" />
-      <entry key="D1" value="152.7686730814279" />
-      <entry key="W1" value="154.6745521339175" />
+      <entry key="MS100" value="1.0123392281030459" />
+      <entry key="MS500" value="1.8645381690544633" />
+      <entry key="S2" value="4.22877982445889" />
+      <entry key="S5" value="5.70894478223712" />
+      <entry key="S10" value="7.390134327577885" />
+      <entry key="S30" value="15.504325462059375" />
+      <entry key="S60" value="26.559580583718166" />
+      <entry key="M2" value="40.8944318761588" />
+      <entry key="M5" value="61.54983923088497" />
+      <entry key="M10" value="86.55498689510603" />
+      <entry key="M15" value="106.35724465743195" />
+      <entry key="M30" value="142.0642216379535" />
+      <entry key="H1" value="173.59274247075675" />
+      <entry key="H2" value="197.97389327459953" />
+      <entry key="H4" value="214.32044639138775" />
+      <entry key="D1" value="231.18111532628123" />
+      <entry key="W1" value="234.4441982514836" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000004498664146" />
-      <entry key="S2" value="1.025898322823681" />
-      <entry key="S5" value="1.2335435940640107" />
-      <entry key="S10" value="1.538311247299483" />
-      <entry key="S30" value="2.4473133631005037" />
-      <entry key="S60" value="3.3407165272335475" />
-      <entry key="M2" value="4.597145073797586" />
-      <entry key="M5" value="6.951238887353294" />
-      <entry key="M10" value="8.936209285077036" />
-      <entry key="M15" value="9.957738542176092" />
-      <entry key="M30" value="11.27411565609462" />
-      <entry key="H1" value="12.076962984311761" />
-      <entry key="H2" value="12.522158403901509" />
-      <entry key="H4" value="12.75682265681177" />
-      <entry key="D1" value="12.958863669123753" />
-      <entry key="W1" value="12.994108313625468" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="7.918116045628043E-184" />
+      <entry key="S5" value="7.01716226539529E-74" />
+      <entry key="S10" value="3.669000102498394E-37" />
+      <entry key="S30" value="1.5177168336260447E-12" />
+      <entry key="S60" value="2.6308144002204653E-6" />
+      <entry key="M2" value="0.004079561659350301" />
+      <entry key="M5" value="0.4181309650050369" />
+      <entry key="M10" value="2.191686284466879" />
+      <entry key="M15" value="3.901612116082245" />
+      <entry key="M30" value="7.057065882675945" />
+      <entry key="H1" value="9.554953509054998" />
+      <entry key="H2" value="11.138189815405752" />
+      <entry key="H4" value="12.031235529686189" />
+      <entry key="D1" value="12.833000350201141" />
+      <entry key="W1" value="12.97600343554248" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="2.0162445122816723E-5" />
-      <entry key="MS500" value="0.16463747675586657" />
-      <entry key="S2" value="1.3420791944477786" />
-      <entry key="S5" value="2.912250321297814" />
-      <entry key="S10" value="5.542636059162278" />
-      <entry key="S30" value="13.475851970355063" />
-      <entry key="S60" value="21.60232956571344" />
-      <entry key="M2" value="34.56917123426025" />
-      <entry key="M5" value="62.32183677747542" />
-      <entry key="M10" value="86.90748870145536" />
-      <entry key="M15" value="99.76968956128225" />
-      <entry key="M30" value="117.88144939888842" />
-      <entry key="H1" value="133.4075671475474" />
-      <entry key="H2" value="146.523702027604" />
-      <entry key="H4" value="155.82808993269893" />
-      <entry key="D1" value="165.7265422184764" />
-      <entry key="W1" value="167.6685177246382" />
+      <entry key="MS100" value="0.9578046011498117" />
+      <entry key="MS500" value="1.8440674022218755" />
+      <entry key="S2" value="4.213796356783159" />
+      <entry key="S5" value="5.690917784865161" />
+      <entry key="S10" value="7.334850147567104" />
+      <entry key="S30" value="15.39386389006901" />
+      <entry key="S60" value="26.456917610849654" />
+      <entry key="M2" value="40.822741896904205" />
+      <entry key="M5" value="61.9195758148988" />
+      <entry key="M10" value="88.70184050589828" />
+      <entry key="M15" value="110.21627230549392" />
+      <entry key="M30" value="149.08827096234344" />
+      <entry key="H1" value="183.12644300333952" />
+      <entry key="H2" value="209.09989306405828" />
+      <entry key="H4" value="226.34512872787394" />
+      <entry key="D1" value="244.01295251630597" />
+      <entry key="W1" value="247.42003367303533" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -151,7 +150,9 @@
       <workItem from="1779212550673" duration="4864000" />
       <workItem from="1779219773718" duration="1183000" />
       <workItem from="1779222751170" duration="597000" />
-      <workItem from="1779292283937" duration="1697000" />
+      <workItem from="1779292283937" duration="3450000" />
+      <workItem from="1779297763642" duration="85000" />
+      <workItem from="1779313183796" duration="253000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -161,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778007718076</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added load_rom">
+      <option name="closed" value="true" />
+      <created>1779294643387</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1779294643388</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,7 +178,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="added load_rom" />
+    <MESSAGE value="added starting to build cycle" />
+    <option name="LAST_COMMIT_MESSAGE" value="added starting to build cycle" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/chip8python$gui.coverage" NAME="gui Coverage Results" MODIFIED="1779213024777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />

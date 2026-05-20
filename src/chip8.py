@@ -59,4 +59,20 @@ class Chip8:
         for i in range(len(buffer)):
             self.memory[i + START_ADDRESS] = buffer[i]
 
-        
+
+    def cycle(self):
+
+        #Fetch
+        # as in grab the first part move it to the left and add the second part
+        opcode = self.memory[self.pc] << 8 | self.memory[self.pc + 1]
+
+        #pc must increment somewhere might as well be here
+        self.pc += 2
+
+        #Decode Execute
+
+        if opcode[0:] == 0:
+            if opcode[1:] == 0:
+                for i in range(len(self.video)):
+                    self.video[i] = 0
+
