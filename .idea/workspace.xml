@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="495ab933-4558-4734-81e3-6426043ca98c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/chip8python.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chip8.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/gui.py" afterDir="false" />
+    <list default="true" id="495ab933-4558-4734-81e3-6426043ca98c" name="Changes" comment="first commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chip8.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/chip8.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui/gui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +24,77 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;jackklassen&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/jackklassen/chip8python.git&quot;,
+    &quot;accountId&quot;: &quot;c82baca4-cf61-4614-861e-898e690c9074&quot;
+  }
+}</component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.8486433600472214E-5" />
+      <entry key="MS500" value="0.1517099693587671" />
+      <entry key="S2" value="1.0432043454378177" />
+      <entry key="S5" value="2.204627463564719" />
+      <entry key="S10" value="4.442612232394385" />
+      <entry key="S30" value="11.346559612917924" />
+      <entry key="S60" value="18.50876296627781" />
+      <entry key="M2" value="30.163855137961495" />
+      <entry key="M5" value="55.50340157653676" />
+      <entry key="M10" value="78.0617570221408" />
+      <entry key="M15" value="89.88051235646243" />
+      <entry key="M30" value="106.64698158514457" />
+      <entry key="H1" value="121.35217179949542" />
+      <entry key="H2" value="134.01286737459978" />
+      <entry key="H4" value="143.07708669034886" />
+      <entry key="D1" value="152.7686730814279" />
+      <entry key="W1" value="154.6745521339175" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000004498664146" />
+      <entry key="S2" value="1.025898322823681" />
+      <entry key="S5" value="1.2335435940640107" />
+      <entry key="S10" value="1.538311247299483" />
+      <entry key="S30" value="2.4473133631005037" />
+      <entry key="S60" value="3.3407165272335475" />
+      <entry key="M2" value="4.597145073797586" />
+      <entry key="M5" value="6.951238887353294" />
+      <entry key="M10" value="8.936209285077036" />
+      <entry key="M15" value="9.957738542176092" />
+      <entry key="M30" value="11.27411565609462" />
+      <entry key="H1" value="12.076962984311761" />
+      <entry key="H2" value="12.522158403901509" />
+      <entry key="H4" value="12.75682265681177" />
+      <entry key="D1" value="12.958863669123753" />
+      <entry key="W1" value="12.994108313625468" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="2.0162445122816723E-5" />
+      <entry key="MS500" value="0.16463747675586657" />
+      <entry key="S2" value="1.3420791944477786" />
+      <entry key="S5" value="2.912250321297814" />
+      <entry key="S10" value="5.542636059162278" />
+      <entry key="S30" value="13.475851970355063" />
+      <entry key="S60" value="21.60232956571344" />
+      <entry key="M2" value="34.56917123426025" />
+      <entry key="M5" value="62.32183677747542" />
+      <entry key="M10" value="86.90748870145536" />
+      <entry key="M15" value="99.76968956128225" />
+      <entry key="M30" value="117.88144939888842" />
+      <entry key="H1" value="133.4075671475474" />
+      <entry key="H2" value="146.523702027604" />
+      <entry key="H4" value="155.82808993269893" />
+      <entry key="D1" value="165.7265422184764" />
+      <entry key="W1" value="167.6685177246382" />
+    </decayedShown>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5,
   &quot;fromUser&quot;: false
@@ -38,32 +104,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "configurable.group.python.group.settings",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.gui.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.python.group.settings&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-024ed6589d45-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.23567.174" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-PY-261.24374.152" />
+        <option value="bundled-python-sdk-c59985aa861c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.24374.152" />
       </set>
     </attachedChunks>
   </component>
@@ -76,14 +145,34 @@
       <updated>1777951901779</updated>
       <workItem from="1777951902870" duration="335000" />
       <workItem from="1777952536543" duration="267000" />
-      <workItem from="1778001789619" duration="4536000" />
+      <workItem from="1778001789619" duration="5508000" />
+      <workItem from="1778910754026" duration="209000" />
+      <workItem from="1779031968477" duration="292000" />
+      <workItem from="1779212550673" duration="4864000" />
+      <workItem from="1779219773718" duration="1183000" />
+      <workItem from="1779222751170" duration="597000" />
+      <workItem from="1779292283937" duration="1697000" />
     </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1778007718076</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1778007718076</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/chip8python$main.coverage" NAME="main Coverage Results" MODIFIED="1778005808770" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/chip8python$gui.coverage" NAME="gui Coverage Results" MODIFIED="1779213024777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />
+    <SUITE FILE_PATH="coverage/chip8python$main.coverage" NAME="main Coverage Results" MODIFIED="1779219419002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
