@@ -5,19 +5,16 @@
 #check out https://tobiasvl.github.io/blog/write-a-chip-8-emulator/
 # and https://austinmorlan.com/posts/chip8_emulator/
 import src
+from src import chip8
 from ui.gui import GUI
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-
-    gui = GUI()
-
-    #print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    chip8 = chip8.Chip8()
+    chip8.load_rom("2-ibm-logo.ch8")
+    chip8.cycle()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
