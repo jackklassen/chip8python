@@ -6,14 +6,13 @@
 # and https://austinmorlan.com/posts/chip8_emulator/
 import src
 from src import chip8
-from ui.gui import GUI
 
 
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    chip8 = chip8.Chip8()
+    chip8 = chip8.Chip8("2-ibm-logo.ch8")
     chip8.load_rom("2-ibm-logo.ch8")
     chip8.cycle()
 

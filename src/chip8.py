@@ -1,11 +1,13 @@
 import os
 from typing import Any
+import pygame
 
 
 #TODO: possible issue 2, Font_set stuff is stored as ints (maybe just store incomeing bytes from rom as ints?)
 
 #TODO: plan for running code, use swtich statments
 START_ADDRESS = 0x200
+WHITE = (255, 255, 255)
 FONT_SET = [
     0xF0, 0x90, 0x90, 0x90, 0xF0, # 0
     0x20, 0x60, 0x20, 0x20, 0x70, # 1
@@ -39,7 +41,7 @@ class Chip8:
     opcode = 0
 
 
-    def __init__(self):
+    def __init__(self, romfile):
         self.registers = [0] * 16  # 16 registers
         self.pc = START_ADDRESS
         self.video = [0] * (64 * 32)  # 64 * 32 size video
@@ -52,6 +54,29 @@ class Chip8:
         for i in range(64):
             self.memory[i] = FONT_SET[i]
 
+        self.load_rom(romfile)
+        pygame.init()
+
+        # Set up the game window
+        self.screen = pygame.display.set_mode((64 * 10, 32 * 10))
+        pygame.display.set_caption("Chip-8")
+
+        # Game loop
+        running = True
+        while running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+
+
+
+            # x and y on emulator is just a line 64 to 32
+
+            pygame.display.flip()
+            self.cycle()
+
+        # Quit Pygame
+        pygame.quit()
 
 
     def load_rom(self, file_name):
@@ -102,6 +127,9 @@ class Chip8:
 
     def opcode_0(self):
         print("0 was called")
+        self.screen.fill((0,0,0))
+        pygame.display.flip()
+
         for i in self.video:
             i = 0
 
@@ -114,14 +142,15 @@ class Chip8:
 
     def opcode_6(self,opcode):
         print("6 was called")
-        #self.registers[opcode[1]] = int(opcode[2:])
+        self.registers[int(opcode[1],16)] = int(opcode[2:], 16)
 
     def opcode_7(self,opcode):
         print("7 was called")
-        #self.registers[opcode[1]] += int(opcode[2:])
+        self.registers[int(opcode[1],16)] += int(opcode[2:],16)
 
     def opcode_A(self):
         print("A was called")
 
     def opcode_D(self):
         print("D was called")
+        pygame.draw.rect(self.screen, WHITE, (0, 0, 10, 10))  # draw pixels with this.
