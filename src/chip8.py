@@ -115,9 +115,9 @@ class Chip8:
             elif opcode[:1] == "7":
                 self.opcode_7(opcode)
             elif opcode[:1] == "a":
-                self.opcode_A()
+                self.opcode_A(opcode)
             elif opcode[:1] == "d":
-                self.opcode_D()
+                self.opcode_D(opcode)
             else:
                 print("Unknown opcode")
 
@@ -148,9 +148,25 @@ class Chip8:
         print("7 was called")
         self.registers[int(opcode[1],16)] += int(opcode[2:],16)
 
-    def opcode_A(self):
+    def opcode_A(self,opcode):
         print("A was called")
+        self.index = int(opcode[2:], 16)
 
-    def opcode_D(self):
+    def opcode_D(self,opcode):
         print("D was called")
-        pygame.draw.rect(self.screen, WHITE, (0, 0, 10, 10))  # draw pixels with this.
+
+
+        for y_index in range(int(opcode[3],16)):
+            y_coord = self.registers[int(opcode[2], 16)]
+            y_coord = y_coord + y_index
+            y_coord = y_coord % 32
+            for x_index in range(8):
+                x_coord = self.registers[int(opcode[1], 16)]
+                x_coord = x_coord + x_index
+                x_coord = x_coord % 64
+                pygame.draw.rect(self.screen, WHITE, (x_coord * 10, y_coord * 10, 10, 10))  # draw pixels with this.
+
+
+
+
+
