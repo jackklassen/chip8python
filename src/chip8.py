@@ -80,16 +80,12 @@ class Chip8:
 
 
     def load_rom(self, file_name):
-        buffer = []
         with open(file_name, 'rb') as f:
-            while True:
-                byte = f.read(1)
-                if not byte:
-                    break
-                buffer.append(byte)
+            buffer = f.read()
 
-        for i in range(len(buffer)):
-            self.memory[i + START_ADDRESS] = buffer[i]
+        for i,byte in enumerate(buffer):
+            if START_ADDRESS + i < 4095:
+                self.memory[i + START_ADDRESS] = byte
 
 
     def cycle(self):
@@ -100,23 +96,24 @@ class Chip8:
             #opcode = something
             #array is filled with ints, we feed it bytes
 
-            opcode  = self.memory[self.pc].hex() + self.memory[self.pc + 1].hex()
+            opcode  = (self.memory[self.pc] << 8 ) | self.memory[self.pc + 1]
         #pc must increment somewhere might as well be here
             self.pc += 2
 
+            first_hexit = (opcode & 0xF000) >> 12
 
         #Decode Execute
-            if opcode[:1] == "0":
+            if first_hexit == 0x0:
                 self.opcode_0()
-            elif opcode[:1] == "1":
+            elif first_hexit == 0x1:
                 self.opcode_1(opcode)
-            elif opcode[:1] == "6":
+            elif first_hexit == 0x6:
                 self.opcode_6(opcode)
-            elif opcode[:1] == "7":
+            elif first_hexit == 0x7:
                 self.opcode_7(opcode)
-            elif opcode[:1] == "a":
+            elif first_hexit == 0xA:
                 self.opcode_A(opcode)
-            elif opcode[:1] == "d":
+            elif first_hexit == 0xD:
                 self.opcode_D(opcode)
             else:
                 print("Unknown opcode")
@@ -136,7 +133,7 @@ class Chip8:
 
     def opcode_1(self,opcode):
         print("1 was called")
-        new_pc = int(opcode[1:])
+        new_pc = int(opcode[1:],16)
         self.pc = new_pc
 
 
@@ -156,17 +153,11 @@ class Chip8:
         print("D was called")
 
 
-        for y_index in range(int(opcode[3],16)):
-            y_coord = self.registers[int(opcode[2], 16)]
-            y_coord = y_coord + y_index
-            y_coord = y_coord % 32
-            for x_index in range(8):
-                x_coord = self.registers[int(opcode[1], 16)]
-                x_coord = x_coord + x_index
-                x_coord = x_coord % 64
-                pygame.draw.rect(self.screen, WHITE, (x_coord * 10, y_coord * 10, 10, 10))  # draw pixels with this.
+        vx_index = int(opcode[1],16)
+        vy_index = int(opcode[2], 16)
+        height = int(opcode[3], 16)
 
-
-
-
+        x_coord_reg = self.registers[vx_index]
+        y_coord_reg = self.registers[vy_index]
+        self.registers[0xF] = 0 #collision register off
 

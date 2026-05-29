@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="495ab933-4558-4734-81e3-6426043ca98c" name="Changes" comment="continued work on cycle and refactored gui">
+    <list default="true" id="495ab933-4558-4734-81e3-6426043ca98c" name="Changes" comment="Began work getting screen to dispaly pixels">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/chip8.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/chip8.py" afterDir="false" />
     </list>
@@ -37,61 +37,61 @@
 }</component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000000001608" />
-      <entry key="MS500" value="1.00276213586401" />
-      <entry key="S2" value="1.229251010801168" />
-      <entry key="S5" value="1.5547858570163748" />
-      <entry key="S10" value="1.7472113837602108" />
-      <entry key="S30" value="2.4640003027289086" />
-      <entry key="S60" value="5.615564739241722" />
-      <entry key="M2" value="15.27168465955522" />
-      <entry key="M5" value="45.06439831963161" />
-      <entry key="M10" value="93.79451725756282" />
-      <entry key="M15" value="141.02963541013287" />
-      <entry key="M30" value="257.4705749223858" />
-      <entry key="H1" value="397.2103354258694" />
-      <entry key="H2" value="521.3296015379824" />
-      <entry key="H4" value="608.9109774817202" />
-      <entry key="D1" value="701.6926158577297" />
-      <entry key="W1" value="719.8925585298822" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0000003995172098" />
+      <entry key="S10" value="1.001154798301077" />
+      <entry key="S30" value="1.427200059998921" />
+      <entry key="S60" value="3.984283419574657" />
+      <entry key="M2" value="12.131750395237692" />
+      <entry key="M5" value="44.63261227566087" />
+      <entry key="M10" value="100.38983035125256" />
+      <entry key="M15" value="152.66131486816283" />
+      <entry key="M30" value="284.7493925173435" />
+      <entry key="H1" value="452.6684697820799" />
+      <entry key="H2" value="608.9484280542173" />
+      <entry key="H4" value="722.3110409007672" />
+      <entry key="D1" value="844.628316663726" />
+      <entry key="W1" value="868.8562128785412" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="5.498668368865429E-146" />
-      <entry key="S2" value="6.773480383647071E-37" />
-      <entry key="S5" value="5.082692181053525E-15" />
-      <entry key="S10" value="1.0606829221066778E-7" />
-      <entry key="S30" value="0.009286556822246139" />
-      <entry key="S60" value="0.17449132003684464" />
-      <entry key="M2" value="0.8216318080976128" />
-      <entry key="M5" value="2.515057718378732" />
-      <entry key="M10" value="4.573649950009546" />
-      <entry key="M15" value="6.284072181057471" />
-      <entry key="M30" value="10.554336985185577" />
-      <entry key="H1" value="16.324709064269673" />
-      <entry key="H2" value="21.851519660407956" />
-      <entry key="H4" value="25.832757398115675" />
-      <entry key="D1" value="30.04065829714804" />
-      <entry key="W1" value="30.86030918688582" />
+      <entry key="MS500" value="1.1759782513760113E-141" />
+      <entry key="S2" value="5.855983204960476E-36" />
+      <entry key="S5" value="8.073417935169944E-15" />
+      <entry key="S10" value="9.050914631180217E-8" />
+      <entry key="S30" value="0.005763506838511727" />
+      <entry key="S60" value="0.11813796329064852" />
+      <entry key="M2" value="0.6345618509791476" />
+      <entry key="M5" value="2.444333412940502" />
+      <entry key="M10" value="5.082912643941801" />
+      <entry key="M15" value="7.292697574271767" />
+      <entry key="M30" value="12.528457309821059" />
+      <entry key="H1" value="19.449426675265844" />
+      <entry key="H2" value="26.250991761613854" />
+      <entry key="H4" value="31.289964058354098" />
+      <entry key="D1" value="36.7402610821224" />
+      <entry key="W1" value="37.81618261917539" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="2.66026242513976E-6" />
-      <entry key="MS500" value="0.07703322040189708" />
-      <entry key="S2" value="0.6578944716933992" />
-      <entry key="S5" value="1.2178671810941613" />
-      <entry key="S10" value="1.5483822055281096" />
-      <entry key="S30" value="2.3910719813726717" />
-      <entry key="S60" value="5.719200591718012" />
-      <entry key="M2" value="16.007273427558683" />
-      <entry key="M5" value="47.48690740300047" />
-      <entry key="M10" value="98.28365703517163" />
-      <entry key="M15" value="147.2359205357755" />
-      <entry key="M30" value="267.960508229212" />
-      <entry key="H1" value="413.48706740234206" />
-      <entry key="H2" value="543.1499915955579" />
-      <entry key="H4" value="634.7256611142375" />
-      <entry key="D1" value="731.7298250366109" />
-      <entry key="W1" value="750.7523628851781" />
+      <entry key="MS100" value="1.6128815316183157E-5" />
+      <entry key="MS500" value="0.11003237669539385" />
+      <entry key="S2" value="0.5759438211746788" />
+      <entry key="S5" value="0.8019591840431891" />
+      <entry key="S10" value="0.896674726195311" />
+      <entry key="S30" value="1.3949627489652394" />
+      <entry key="S60" value="4.071462625533866" />
+      <entry key="M2" value="12.72357235597784" />
+      <entry key="M5" value="47.008815826270045" />
+      <entry key="M10" value="105.39402530778791" />
+      <entry key="M15" value="159.87511837639738" />
+      <entry key="M30" value="297.2070919121112" />
+      <entry key="H1" value="472.0629672888643" />
+      <entry key="H2" value="635.1628424092293" />
+      <entry key="H4" value="753.5794326331395" />
+      <entry key="D1" value="881.3643992321457" />
+      <entry key="W1" value="906.6717822307021" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -181,7 +181,9 @@
       <workItem from="1780078889893" duration="584000" />
       <workItem from="1780079724999" duration="1063000" />
       <workItem from="1780085700088" duration="249000" />
-      <workItem from="1780086558423" duration="398000" />
+      <workItem from="1780086558423" duration="817000" />
+      <workItem from="1780087926442" duration="799000" />
+      <workItem from="1780090043393" duration="536000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -223,7 +225,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779996779116</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Began work getting screen to dispaly pixels">
+      <option name="closed" value="true" />
+      <created>1780087145704</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1780087145704</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,11 +245,12 @@
     <MESSAGE value="added starting to build cycle" />
     <MESSAGE value="continued work on cycle" />
     <MESSAGE value="continued work on cycle and refactored gui" />
-    <option name="LAST_COMMIT_MESSAGE" value="continued work on cycle and refactored gui" />
+    <MESSAGE value="Began work getting screen to dispaly pixels" />
+    <option name="LAST_COMMIT_MESSAGE" value="Began work getting screen to dispaly pixels" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/chip8python$chip8.coverage" NAME="chip8 Coverage Results" MODIFIED="1779745806787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/chip8python$chip8.coverage" NAME="chip8 Coverage Results" MODIFIED="1780086958575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/chip8python$gui.coverage" NAME="gui Coverage Results" MODIFIED="1779916944432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />
-    <SUITE FILE_PATH="coverage/chip8python$main.coverage" NAME="main Coverage Results" MODIFIED="1780086906141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/chip8python$main.coverage" NAME="main Coverage Results" MODIFIED="1780090518371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
