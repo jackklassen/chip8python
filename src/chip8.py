@@ -90,7 +90,7 @@ class Chip8:
 
     def cycle(self):
        # self.pc = 0x200
-        while(self.pc < 4096 and not isinstance(self.memory[self.pc] , int)):
+        while(self.pc < 4096):
         #Fetch
             # as in grab the first part move it to the left and add the second part
             #opcode = something
@@ -118,7 +118,7 @@ class Chip8:
             else:
                 print("Unknown opcode")
 
-            print(opcode)
+            print(hex(opcode))
 
 
 
@@ -133,31 +133,40 @@ class Chip8:
 
     def opcode_1(self,opcode):
         print("1 was called")
-        new_pc = int(opcode[1:],16)
+        new_pc = opcode & 0x0FFF
+        print(new_pc)
         self.pc = new_pc
 
 
     def opcode_6(self,opcode):
         print("6 was called")
-        self.registers[int(opcode[1],16)] = int(opcode[2:], 16)
+        second_hexit = (opcode & 0x0F00) >> 8
+        nn_hexit = (opcode & 0x00FF)
+
+        self.registers[second_hexit] = int(nn_hexit)
 
     def opcode_7(self,opcode):
         print("7 was called")
-        self.registers[int(opcode[1],16)] += int(opcode[2:],16)
+        second_hexit = (opcode & 0x0F00) >> 8
+        nn_hexit = (opcode & 0x00FF)
+
+        self.registers[second_hexit] =+ int(nn_hexit)
 
     def opcode_A(self,opcode):
         print("A was called")
-        self.index = int(opcode[2:], 16)
+        #self.index = int(opcode[2:], 16)
+        nnn_hexits = opcode & 0x0FFF
+        self.index = nnn_hexits
 
     def opcode_D(self,opcode):
         print("D was called")
 
 
-        vx_index = int(opcode[1],16)
-        vy_index = int(opcode[2], 16)
-        height = int(opcode[3], 16)
+        #vx_index = int(opcode[1],16)
+       # vy_index = int(opcode[2], 16)
+        #height = int(opcode[3], 16)
 
-        x_coord_reg = self.registers[vx_index]
-        y_coord_reg = self.registers[vy_index]
+        #x_coord_reg = self.registers[vx_index]
+       # y_coord_reg = self.registers[vy_index]
         self.registers[0xF] = 0 #collision register off
 
