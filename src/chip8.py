@@ -144,6 +144,34 @@ class Chip8:
 
         self.registers[second_hexit] = (self.registers[second_hexit] + nn_hexit) & 0xFF
 
+
+    def opcode_8(self,opcode):
+        print("8 was called")
+
+        vx_reg = (opcode & 0x0F00) >> 8
+        vy_reg = (opcode & 0x00F0) >> 4
+        n = opcode & 0x000F
+
+        if n == 0x0:
+            self.registers[vx_reg] = self.registers[vy_reg]
+        elif n == 0x1:
+            self.registers[vx_reg] = self.registers[vx_reg] | self.registers[vy_reg]
+        elif n == 0x2:
+            self.registers[vx_reg] = self.registers[vx_reg] & self.registers[vy_reg]
+        elif n == 0x3:
+            self.registers[vx_reg] = self.registers[vx_reg] ^ self.registers[vy_reg]
+        elif n == 0x4:
+            self.registers[vx_reg] = self.registers[vx_reg] + self.registers[vy_reg]
+            if self.registers[vx_reg] > 255:
+                self.registers[0xF] = 1 #set off carry flag
+        elif n == 0x5:
+            self.registers[vx_reg] = self.registers[vx_reg] - self.registers[vy_reg]
+        elif n == 0x7:
+            self.registers[vx_reg] = self.registers[vy_reg] - self.registers[vx_reg]
+            #need to add vf effect for subtractions.
+
+        #need to do 8XY6 and 8XYE: Shift but they're odd
+
     def opcode_A(self, opcode):
         print("A was called")
         nnn_hexits = opcode & 0x0FFF
