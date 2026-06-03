@@ -29,11 +29,11 @@ FONT_SET = [
 SCALE = 10
 
 class Chip8:
-    registers = [0] * 16  #16 registers
-    memory = [0] * 4096  #4096 bytes of memory
-    index = 0  #16-bit index that points to location in memory
-    pc = 0  #program counter, current instruction in memory
-    stack = [0] * 16  #16 bytes of stack
+    #registers = [0] * 16  #16 registers
+    #memory = [0] * 4096  #4096 bytes of memory
+    #index = 0  #16-bit index that points to location in memory
+    #pc = 0  #program counter, current instruction in memory
+    #stack = [0] * 16  #16 bytes of stack
     sp = 0  #address for stack pointer
     delayTimer = 0
     soundTimer = 0
@@ -45,6 +45,7 @@ class Chip8:
         self.registers = [0] * 16  # 16 registers
         self.pc = START_ADDRESS
         self.video = [0] * (64 * 32)  # 64 * 32 size video
+        self.stack = [0] * 16  # 16 bytes of stack
         opcode = 0
         index = 0
         sp = 0
@@ -99,7 +100,7 @@ class Chip8:
 
             #Decode Execute
         if first_hexit == 0x0:
-            self.opcode_0()
+            self.opcode_0(opcode)
         elif first_hexit == 0x1:
             self.opcode_1(opcode)
         elif first_hexit == 0x6:
@@ -116,19 +117,51 @@ class Chip8:
         print(hex(opcode))
         self.render()
 
-    def opcode_0(self):
-        print("0 was called")
-        self.screen.fill((0, 0, 0))
-        pygame.display.flip()
-
-        for i in self.video:
-            i = 0
+    def opcode_0(self, opcode):
+        if opcode == 0x00EE:
+            print("00EE was called")
+            self.pc = self.stack.pop()
+        else:
+            print("0 was called")
+            self.screen.fill((0, 0, 0))
+            #pygame.display.flip()
+            for i in self.video:
+                i = 0
 
     def opcode_1(self, opcode):
         print("1 was called")
         new_pc = opcode & 0x0FFF
         print(new_pc)
         self.pc = new_pc
+
+    def opcode_2(self, opcode):
+        print("2 was called")
+        new_pc = opcode & 0x0FFF
+        self.stack.append(self.pc)
+        self.pc = new_pc
+
+    def opcode_3(self,opcode):
+        print("3 was called")
+        vx_reg = (opcode & 0x0F00) >> 8
+        nn_hexit = (opcode & 0x00FF)
+        if self.registers[vx_reg] == nn_hexit:
+            self.pc += 2
+
+    def opcode_4(self, opcode):
+        print("4 was called")
+        vx_reg = (opcode & 0x0F00) >> 8
+        nn_hexit = (opcode & 0x00FF)
+        if not self.registers[vx_reg] == nn_hexit:
+            self.pc += 2
+
+    def opcode_5(self, opcode):
+        print("5 was called")
+        vx_reg = (opcode & 0x0F00) >> 8
+        vy_reg = (opcode & 0x00F0) >> 4
+
+        if self.registers[vx_reg] == self.registers[vx_reg]:
+            self.pc += 2
+
 
     def opcode_6(self, opcode):
         print("6 was called")
@@ -171,6 +204,14 @@ class Chip8:
             #need to add vf effect for subtractions.
 
         #need to do 8XY6 and 8XYE: Shift but they're odd
+
+    def opcode_9(self, opcode):
+        print("9 was called")
+        vx_reg = (opcode & 0x0F00) >> 8
+        vy_reg = (opcode & 0x00F0) >> 4
+
+        if not self.registers[vx_reg] == self.registers[vx_reg]:
+            self.pc += 2
 
     def opcode_A(self, opcode):
         print("A was called")
