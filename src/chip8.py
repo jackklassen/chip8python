@@ -103,10 +103,20 @@ class Chip8:
             self.opcode_0(opcode)
         elif first_hexit == 0x1:
             self.opcode_1(opcode)
+        elif first_hexit == 0x2:
+            self.opcode_2(opcode)
+        elif first_hexit == 0x3:
+            self.opcode_3(opcode)
+        elif first_hexit == 0x4:
+            self.opcode_4(opcode)
+        elif first_hexit == 0x5:
+            self.opcode_5(opcode)
         elif first_hexit == 0x6:
             self.opcode_6(opcode)
         elif first_hexit == 0x7:
             self.opcode_7(opcode)
+        elif first_hexit == 0x8:
+            self.opcode_8(opcode)
         elif first_hexit == 0xA:
             self.opcode_A(opcode)
         elif first_hexit == 0xD:
@@ -159,7 +169,7 @@ class Chip8:
         vx_reg = (opcode & 0x0F00) >> 8
         vy_reg = (opcode & 0x00F0) >> 4
 
-        if self.registers[vx_reg] == self.registers[vx_reg]:
+        if self.registers[vx_reg] == self.registers[vy_reg]:
             self.pc += 2
 
 
