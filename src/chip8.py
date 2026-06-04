@@ -1,13 +1,10 @@
 import os
 from random import randint
 from typing import Any
-import pygame
 
-#TODO: possible issue 2, Font_set stuff is stored as ints (maybe just store incomeing bytes from rom as ints?)
 
-#TODO: plan for running code, use swtich statments
 START_ADDRESS = 0x200
-WHITE = (255, 255, 255)
+
 FONT_SET = [
     0xF0, 0x90, 0x90, 0x90, 0xF0,  # 0
     0x20, 0x60, 0x20, 0x20, 0x70,  # 1
@@ -27,7 +24,7 @@ FONT_SET = [
     0xF0, 0x80, 0xF0, 0x80, 0x80  # F
 ]
 
-SCALE = 10
+
 
 class Chip8:
     #registers = [0] * 16  #16 registers
@@ -42,7 +39,7 @@ class Chip8:
 
     opcode = 0
 
-    def __init__(self, romfile):
+    def __init__(self):
         self.registers = [0] * 16  # 16 registers
         self.pc = START_ADDRESS
         self.video = [0] * (64 * 32)  # 64 * 32 size video
@@ -55,27 +52,8 @@ class Chip8:
         for i in range(64):
             self.memory[i] = FONT_SET[i]
 
-        self.load_rom(romfile)
-        pygame.init()
+        #self.load_rom(romfile)
 
-        # Set up the game window
-        self.screen = pygame.display.set_mode((64 * 10, 32 * 10))
-        pygame.display.set_caption("Chip-8")
-
-        # Game loop
-        running = True
-        while running:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    running = False
-
-            # x and y on emulator is just a line 64 to 32
-
-            pygame.display.flip()
-            self.cycle()
-
-        # Quit Pygame
-        pygame.quit()
 
     def load_rom(self, file_name):
         with open(file_name, 'rb') as f:
@@ -130,7 +108,7 @@ class Chip8:
             print("Unknown opcode")
 
         print(hex(opcode))
-        self.render()
+
 
     def opcode_0(self, opcode):
         if opcode == 0x00EE:
@@ -138,7 +116,7 @@ class Chip8:
             self.pc = self.stack.pop()
         else:
             print("0 was called")
-            self.screen.fill((0, 0, 0))
+            #self.screen.fill((0, 0, 0))
             #pygame.display.flip()
             for i in self.video:
                 i = 0
@@ -276,11 +254,3 @@ class Chip8:
 
 
 
-    def render(self):
-        self.screen.fill((0, 0, 0))
-        for i, pixel in enumerate(self.video):
-            if pixel:
-                x = (i % 64) * SCALE
-                y = (i // 64) * SCALE
-                pygame.draw.rect(self.screen, WHITE, (x, y, SCALE, SCALE))
-        pygame.display.flip()

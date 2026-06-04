@@ -1,7 +1,6 @@
 import sys
 from src import chip8
-
-
+from src.gui import Gui
 
 
 #def main():
@@ -10,7 +9,9 @@ from src import chip8
 
 #testing
 def main():
-    chip8_main = chip8.Chip8("test_opcode.ch8")
+    gui_main = Gui()
+    gui_main.load_rom("test_opcode.ch8")
+    gui_main.run()
 
 if __name__ == '__main__':
    main()
