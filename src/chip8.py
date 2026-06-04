@@ -1,4 +1,5 @@
 import os
+from random import randint
 from typing import Any
 import pygame
 
@@ -119,6 +120,10 @@ class Chip8:
             self.opcode_8(opcode)
         elif first_hexit == 0xA:
             self.opcode_A(opcode)
+        elif first_hexit == 0xB:
+            self.opcode_B(opcode)
+        elif first_hexit == 0xC:
+            self.opcode_C(opcode)
         elif first_hexit == 0xD:
             self.opcode_D(opcode)
         else:
@@ -210,10 +215,19 @@ class Chip8:
             if new_val > 255:
                 self.registers[0xF] = 1 #set off carry flag
         elif n == 0x5:
+            if self.registers[vx_reg] > self.registers[vy_reg]:
+                self.registers[0xF] = 1
+            else:
+                self.registers[0xF] = 0
             self.registers[vx_reg] = self.registers[vx_reg] - self.registers[vy_reg]
         elif n == 0x7:
+            if self.registers[vy_reg] > self.registers[vx_reg]:
+                self.registers[0xF] = 1
+            else:
+                self.registers[0xF] = 0
             self.registers[vx_reg] = self.registers[vy_reg] - self.registers[vx_reg]
-            #need to add vf effect for subtractions.
+
+
 
         #need to do 8XY6 and 8XYE: Shift but they're odd
 
@@ -222,13 +236,24 @@ class Chip8:
         vx_reg = (opcode & 0x0F00) >> 8
         vy_reg = (opcode & 0x00F0) >> 4
 
-        if not self.registers[vx_reg] == self.registers[vx_reg]:
+        if not self.registers[vx_reg] == self.registers[vy_reg]:
             self.pc += 2
 
     def opcode_A(self, opcode):
         print("A was called")
         nnn_hexits = opcode & 0x0FFF
         self.index = nnn_hexits
+
+    def opcode_B(self, opcode):
+        pass
+
+    def opcode_C(self,opcode):
+        print("C was called")
+        vx_reg = (opcode & 0x0F00) >> 8
+        nn_hexit = (opcode & 0x00FF)
+        random = randint(255)
+        self.registers[vx_reg] = random & nn_hexit
+
 
     def opcode_D(self, opcode):
         print("D was called")

@@ -8,8 +8,6 @@ from src import chip8
  #   args = sys.argv[1:]  # Exclude the script name
   #  chip8_main = chip8.Chip8(args)
 
-
-
 #testing
 def main():
     chip8_main = chip8.Chip8("test_opcode.ch8")
