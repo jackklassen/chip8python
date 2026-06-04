@@ -204,8 +204,10 @@ class Chip8:
         elif n == 0x3:
             self.registers[vx_reg] = self.registers[vx_reg] ^ self.registers[vy_reg]
         elif n == 0x4:
-            self.registers[vx_reg] = self.registers[vx_reg] + self.registers[vy_reg]
-            if self.registers[vx_reg] > 255:
+            new_val = self.registers[vx_reg] + self.registers[vy_reg]
+            self.registers[vx_reg] = new_val % 256
+
+            if new_val > 255:
                 self.registers[0xF] = 1 #set off carry flag
         elif n == 0x5:
             self.registers[vx_reg] = self.registers[vx_reg] - self.registers[vy_reg]
