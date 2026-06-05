@@ -109,7 +109,7 @@ class Chip8:
 
         print(hex(opcode))
 
-
+    ## 00E0 and 00EE, Clear and Pop pc from stack
     def opcode_0(self, opcode):
         if opcode == 0x00EE:
             print("00EE was called")
@@ -119,7 +119,7 @@ class Chip8:
             #self.screen.fill((0, 0, 0))
             #pygame.display.flip()
             for i in self.video:
-                i = 0
+                self.video[i] = 0
 
     def opcode_1(self, opcode):
         print("1 was called")
