@@ -193,21 +193,31 @@ class Chip8:
             if new_val > 255:
                 self.registers[0xF] = 1 #set off carry flag
         elif n == 0x5:
-            if self.registers[vx_reg] > self.registers[vy_reg]:
+            if self.registers[vx_reg] >= self.registers[vy_reg]:
                 self.registers[0xF] = 1
+                self.registers[vx_reg] = self.registers[vx_reg] - self.registers[vy_reg]
             else:
                 self.registers[0xF] = 0
-            self.registers[vx_reg] = self.registers[vx_reg] - self.registers[vy_reg]
+                self.registers[vx_reg] = 256 + self.registers[vx_reg] - self.registers[vy_reg]
+
+        elif n==0x6:
+            shifted_bit = self.registers[vx_reg] & 0x1
+
+            self.registers[vx_reg] >> 1
+            self.registers[0xF] = shifted_bit
+
         elif n == 0x7:
-            if self.registers[vy_reg] > self.registers[vx_reg]:
+            if self.registers[vy_reg] >= self.registers[vx_reg]:
                 self.registers[0xF] = 1
+                self.registers[vx_reg] = self.registers[vy_reg] - self.registers[vx_reg]
             else:
                 self.registers[0xF] = 0
-            self.registers[vx_reg] = self.registers[vy_reg] - self.registers[vx_reg]
+                self.registers[vx_reg] = 256 + self.registers[vy_reg] - self.registers[vx_reg]
 
-
-
-        #need to do 8XY6 and 8XYE: Shift but they're odd
+        elif n == 0xE:
+            shifted_bit = self.registers[vx_reg] & 0x1
+            self.registers[vx_reg] << 1
+            self.registers[0xF] = shifted_bit
 
     def opcode_9(self, opcode):
         print("9 was called")
@@ -241,6 +251,8 @@ class Chip8:
         x_coord = self.registers[vx_reg] % 64
         y_coord = self.registers[vy_reg] % 32
         self.registers[0xF] = 0  #collision register off
+
+
 
         for row in range(n):
             sprite_byte = self.memory[self.index + row]
