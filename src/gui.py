@@ -19,6 +19,10 @@ class Gui:
                 if event.type == pygame.QUIT:
                     running = False
 
+            #while running, if no keypress instruction was fired just call cycle (and that might decrement timer)
+            #if there was a keypress pass that as some bool in cpu and pass a key_pressed into cpu to act acordingly.
+            #cpu should have a handle key press depeding on what instruction started this keypress waiting thing.
+
             # x and y on emulator is just a line 64 to 32
 
             pygame.display.flip()

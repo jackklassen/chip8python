@@ -32,7 +32,7 @@ class Chip8:
     #index = 0  #16-bit index that points to location in memory
     #pc = 0  #program counter, current instruction in memory
     #stack = [0] * 16  #16 bytes of stack
-    sp = 0  #address for stack pointer
+    #sp = 0  #address for stack pointer
     delayTimer = 0
     soundTimer = 0
     keypad = [0] * 16  #16 slots for the 16 possible keyinputs
@@ -107,9 +107,9 @@ class Chip8:
         else:
             print("Unknown opcode")
 
-        print(hex(opcode))
+        #print(hex(opcode))
 
-    ## 00E0 and 00EE, Clear and Pop pc from stack
+    ## 00E0 and 00EE, Clear Screen and Pop pc from stack
     def opcode_0(self, opcode):
         if opcode == 0x00EE:
             print("00EE was called")
@@ -120,19 +120,21 @@ class Chip8:
             #pygame.display.flip()
             for i in self.video:
                 self.video[i] = 0
-
+    #1NNN, Jump to NNN
     def opcode_1(self, opcode):
         print("1 was called")
         new_pc = opcode & 0x0FFF
         print(new_pc)
         self.pc = new_pc
 
+    #2NNN, Jump to NNN, store previous pc on stack.
     def opcode_2(self, opcode):
         print("2 was called")
         new_pc = opcode & 0x0FFF
         self.stack.append(self.pc)
         self.pc = new_pc
 
+    #3XNN skip 1 instruction if reg[vx] == NN
     def opcode_3(self,opcode):
         print("3 was called")
         vx_reg = (opcode & 0x0F00) >> 8
@@ -140,6 +142,8 @@ class Chip8:
         if self.registers[vx_reg] == nn_hexit:
             self.pc += 2
 
+
+    #4XNN skip 1 instruction if reg[vx] =/= NN
     def opcode_4(self, opcode):
         print("4 was called")
         vx_reg = (opcode & 0x0F00) >> 8
@@ -147,6 +151,8 @@ class Chip8:
         if not self.registers[vx_reg] == nn_hexit:
             self.pc += 2
 
+
+    #5XY0 skip 1 instruction if reg[vx] == reg[vy]
     def opcode_5(self, opcode):
         print("5 was called")
         vx_reg = (opcode & 0x0F00) >> 8
@@ -155,14 +161,15 @@ class Chip8:
         if self.registers[vx_reg] == self.registers[vy_reg]:
             self.pc += 2
 
-
+    #6XNN, Set register vx to NN
     def opcode_6(self, opcode):
         print("6 was called")
         second_hexit = (opcode & 0x0F00) >> 8
         nn_hexit = (opcode & 0x00FF)
 
-        self.registers[second_hexit] = int(nn_hexit)
+        self.registers[second_hexit] = nn_hexit
 
+    #7XNN, add NN to reg[vx]
     def opcode_7(self, opcode):
         print("7 was called")
         second_hexit = (opcode & 0x0F00) >> 8
@@ -170,7 +177,7 @@ class Chip8:
 
         self.registers[second_hexit] = (self.registers[second_hexit] + nn_hexit) & 0xFF
 
-
+    #8XYN, Logical and arithmetic  operations on registers
     def opcode_8(self,opcode):
         print("8 was called")
 
@@ -219,6 +226,7 @@ class Chip8:
             self.registers[vx_reg] << 1
             self.registers[0xF] = shifted_bit
 
+    #9XY0 skip 1 instruction if reg[vx] == reg[vy]
     def opcode_9(self, opcode):
         print("9 was called")
         vx_reg = (opcode & 0x0F00) >> 8
@@ -227,14 +235,18 @@ class Chip8:
         if not self.registers[vx_reg] == self.registers[vy_reg]:
             self.pc += 2
 
+    #ANNN, set the index regiseter to NNN
     def opcode_A(self, opcode):
         print("A was called")
         nnn_hexits = opcode & 0x0FFF
         self.index = nnn_hexits
 
+
+    #BNNN, Jump with an offset
     def opcode_B(self, opcode):
         pass
 
+    #CXNN, put a random added with into vx
     def opcode_C(self,opcode):
         print("C was called")
         vx_reg = (opcode & 0x0F00) >> 8
@@ -243,6 +255,7 @@ class Chip8:
         self.registers[vx_reg] = random & nn_hexit
 
 
+    #DXYN, display
     def opcode_D(self, opcode):
         print("D was called")
         vx_reg = (opcode & 0x0F00) >> 8
@@ -251,9 +264,6 @@ class Chip8:
         x_coord = self.registers[vx_reg] % 64
         y_coord = self.registers[vy_reg] % 32
         self.registers[0xF] = 0  #collision register off
-
-
-
         for row in range(n):
             sprite_byte = self.memory[self.index + row]
             for col in range(8):

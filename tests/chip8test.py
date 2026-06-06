@@ -33,5 +33,22 @@ class MyTestCase(unittest.TestCase):
         self.cpu_test.opcode_0(0x00EE)
         self.assertEqual(self.cpu_test.pc, START_ADDRESS)
 
+
+    def test_set_reg_normal(self):
+        opcode = 0x6111
+        self.cpu_test.opcode_6(opcode)
+        self.assertEqual(self.cpu_test.registers[0x1], 0x11)
+
+    def test_set_reg_high(self):
+        opcode = 0x61FF
+        self.cpu_test.opcode_6(opcode)
+        self.assertEqual(self.cpu_test.registers[0x1], 0xFF)
+
+    def test_set_reg_low(self):
+        opcode = 0x6000
+        self.cpu_test.opcode_6(opcode)
+        self.assertEqual(self.cpu_test.registers[0x0], 0)
+
+
 if __name__ == '__main__':
     unittest.main()
