@@ -44,6 +44,9 @@ class Chip8:
         self.pc = START_ADDRESS
         self.video = [0] * (64 * 32)  # 64 * 32 size video
         self.stack = [0] * 16  # 16 bytes of stack
+        self.delayTimer = 0
+        self.soundTimer = 0
+        self.needKey = False
         opcode = 0
         index = 0
         sp = 0
@@ -53,6 +56,12 @@ class Chip8:
             self.memory[i] = FONT_SET[i]
 
         #self.load_rom(romfile)
+
+    def handleTimers(self):
+        if self.delayTimer > 0:
+            self.delayTimer -= 1
+        if self.soundTimer > 0:
+            self.soundTimer -= 1
 
 
     def load_rom(self, file_name):
@@ -74,7 +83,7 @@ class Chip8:
         opcode = (self.memory[self.pc] << 8) | self.memory[self.pc + 1]
             #pc must increment somewhere might as well be here
         self.pc += 2
-
+        self.handleTimers()
         first_hexit = (opcode & 0xF000) >> 12
 
             #Decode Execute
@@ -104,6 +113,10 @@ class Chip8:
             self.opcode_C(opcode)
         elif first_hexit == 0xD:
             self.opcode_D(opcode)
+        elif first_hexit == 0xE:
+            pass
+        elif first_hexit == 0xF:
+            self.opcode_F(opcode)
         else:
             print("Unknown opcode")
 
@@ -275,4 +288,30 @@ class Chip8:
                     self.video[pixel_index] ^= 1
 
 
+    def opcode_F(self,opcode):
+        print("F was called")
+        vx_reg = (opcode & 0x0F00) >> 8
+        nn_hexit = (opcode & 0x00FF)
 
+        if nn_hexit == 0x07:
+            self.registers[vx_reg] = self.delayTimer
+        elif nn_hexit == 0x15:
+            self.delayTimer = self.registers[vx_reg]
+        elif nn_hexit == 0x18:
+            self.soundTimer = self.registers[vx_reg]
+        elif nn_hexit == 0x1E:
+            self.index += self.registers[vx_reg]
+        elif nn_hexit == 0x0A:
+            pass
+            #Get key
+        elif nn_hexit == 0x29:
+            self.index = self.memory[self.registers[vx_reg]] #point index to font char in mem, its first thing in mem
+        elif nn_hexit == 0x33:
+            pass
+            # Binary-coded decimal conversion
+        elif nn_hexit == 0x55:
+            pass
+            #store in mem
+        elif nn_hexit == 0x65:
+            pass
+            #load from mem

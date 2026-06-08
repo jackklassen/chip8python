@@ -1,3 +1,5 @@
+import time
+
 import pygame
 
 from src import chip8
@@ -25,9 +27,14 @@ class Gui:
 
             # x and y on emulator is just a line 64 to 32
 
+            if self.cpu.needKey:
+                pass
+            else:
+                self.cpu.cycle()
+
             pygame.display.flip()
-            self.cpu.cycle()
             self.render()
+            time.sleep(1/60)
         # Quit Pygame
         pygame.quit()
 
