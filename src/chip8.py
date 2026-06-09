@@ -46,10 +46,11 @@ class Chip8:
         self.stack = [0] * 16  # 16 bytes of stack
         self.delayTimer = 0
         self.soundTimer = 0
-        self.needKey = False
+        self.wait_on_key = False
+        self.neededKey = None #connected to wait on key, when waiting, this holds a key we need.
+        self.pressedKey = None #to be set when gui sends it to cpu
         opcode = 0
-        index = 0
-        sp = 0
+        self.index = 0
         self.memory = [0] * 4096
 
         for i in range(64):
@@ -114,7 +115,7 @@ class Chip8:
         elif first_hexit == 0xD:
             self.opcode_D(opcode)
         elif first_hexit == 0xE:
-            pass
+            self.opcode_E(opcode)
         elif first_hexit == 0xF:
             self.opcode_F(opcode)
         else:
@@ -223,7 +224,7 @@ class Chip8:
         elif n==0x6:
             shifted_bit = self.registers[vx_reg] & 0x1
 
-            self.registers[vx_reg] >> 1
+            self.registers[vx_reg] = self.registers[vx_reg] >> 1
             self.registers[0xF] = shifted_bit
 
         elif n == 0x7:
@@ -236,7 +237,7 @@ class Chip8:
 
         elif n == 0xE:
             shifted_bit = self.registers[vx_reg] & 0x1
-            self.registers[vx_reg] << 1
+            self.registers[vx_reg] = self.registers[vx_reg] << 1
             self.registers[0xF] = shifted_bit
 
     #9XY0 skip 1 instruction if reg[vx] == reg[vy]
@@ -257,6 +258,7 @@ class Chip8:
 
     #BNNN, Jump with an offset
     def opcode_B(self, opcode):
+        #todo: this
         pass
 
     #CXNN, put a random added with into vx
@@ -264,7 +266,7 @@ class Chip8:
         print("C was called")
         vx_reg = (opcode & 0x0F00) >> 8
         nn_hexit = (opcode & 0x00FF)
-        random = randint(255)
+        random = randint(0,255)
         self.registers[vx_reg] = random & nn_hexit
 
 
@@ -288,6 +290,18 @@ class Chip8:
                     self.video[pixel_index] ^= 1
 
 
+    def opcode_E(self,opcode):
+        print("E was called")
+        vx_reg = (opcode & 0x0F00) >> 8
+        nn_hexit = (opcode & 0x00FF)
+
+        if nn_hexit == 0x9E:
+            if self.pressedKey == self.registers[vx_reg]:
+                self.pc += 2
+        if nn_hexit == 0xA1:
+            if not self.pressedKey == self.registers[vx_reg]:
+                self.pc += 2
+
     def opcode_F(self,opcode):
         print("F was called")
         vx_reg = (opcode & 0x0F00) >> 8
@@ -302,16 +316,20 @@ class Chip8:
         elif nn_hexit == 0x1E:
             self.index += self.registers[vx_reg]
         elif nn_hexit == 0x0A:
-            pass
-            #Get key
+            self.wait_on_key = True
+            self.neededKey = self.registers[vx_reg]
         elif nn_hexit == 0x29:
             self.index = self.memory[self.registers[vx_reg]] #point index to font char in mem, its first thing in mem
         elif nn_hexit == 0x33:
             pass
+            #todo: this
             # Binary-coded decimal conversion
         elif nn_hexit == 0x55:
-            pass
+            for i in range(vx_reg + 1):
+                self.memory[self.index + i] = self.registers[i]
+
             #store in mem
         elif nn_hexit == 0x65:
-            pass
+            for i in range(vx_reg + 1):
+                self.registers[i] = self.memory[self.index + i]
             #load from mem

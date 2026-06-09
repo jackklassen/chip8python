@@ -1,4 +1,5 @@
 import time
+from turtledemo.clock import hand
 
 import pygame
 
@@ -26,9 +27,10 @@ class Gui:
             #cpu should have a handle key press depeding on what instruction started this keypress waiting thing.
 
             # x and y on emulator is just a line 64 to 32
-
-            if self.cpu.needKey:
-                pass
+            self.cpu.pressedKey = self.handle_keys()
+            if self.cpu.wait_on_key:
+                if self.cpu.neededKey == self.cpu.pressedKey:
+                    self.cpu.wait_on_key = False
             else:
                 self.cpu.cycle()
 
@@ -40,6 +42,43 @@ class Gui:
 
     def load_rom(self, filename):
         return self.cpu.load_rom(filename)
+
+    def handle_keys(self):
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_1]:
+            return 0x1
+        elif keys[pygame.K_2]:
+            return 0x2
+        elif keys[pygame.K_3]:
+            return 0x3
+        elif keys[pygame.K_4]:
+            return 0xC
+        elif keys[pygame.K_q]:
+            return 0x4
+        elif keys[pygame.K_w]:
+            return 0x5
+        elif keys[pygame.K_e]:
+            return 0x6
+        elif keys[pygame.K_r]:
+            return 0xD
+        elif keys[pygame.K_a]:
+            return 0x7
+        elif keys[pygame.K_s]:
+            return 0x8
+        elif keys[pygame.K_d]:
+            return 0x9
+        elif keys[pygame.K_f]:
+            return 0xE
+        elif keys[pygame.K_z]:
+            return 0xA
+        elif keys[pygame.K_x]:
+            return 0x0
+        elif keys[pygame.K_c]:
+            return 0xB
+        elif keys[pygame.K_v]:
+            return 0xF
+        else:
+            return None
 
     def render(self):
         self.screen.fill((0, 0, 0))
