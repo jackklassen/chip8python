@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="495ab933-4558-4734-81e3-6426043ca98c" name="Changes" comment="continued adding opcode includng key handling" />
+    <list default="true" id="495ab933-4558-4734-81e3-6426043ca98c" name="Changes" comment="continued adding opcode includng key handling">
+      <change afterPath="$PROJECT_DIR$/requirments.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/chip8py.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chip8.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cpu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/chip8test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/chip8test.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,61 +42,61 @@
 }</component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0185858352048958" />
-      <entry key="MS500" value="1.5465479433582656" />
-      <entry key="S2" value="3.140706105582188" />
-      <entry key="S5" value="5.184400771194615" />
-      <entry key="S10" value="6.80683818347115" />
-      <entry key="S30" value="11.11737672227509" />
-      <entry key="S60" value="18.965347052209932" />
-      <entry key="M2" value="33.984675962108994" />
-      <entry key="M5" value="68.72322943483123" />
-      <entry key="M10" value="127.16755805939415" />
-      <entry key="M15" value="186.27953298253283" />
-      <entry key="M30" value="334.52317648708566" />
-      <entry key="H1" value="550.4090750523027" />
-      <entry key="H2" value="882.2131871522141" />
-      <entry key="H4" value="1304.2468322499997" />
-      <entry key="D1" value="2047.6031416063583" />
-      <entry key="W1" value="2241.1460127054847" />
+      <entry key="MS100" value="1.0030225878780126" />
+      <entry key="MS500" value="1.3133832551101725" />
+      <entry key="S2" value="1.7482021413543585" />
+      <entry key="S5" value="1.8904659408419442" />
+      <entry key="S10" value="1.9633103974155306" />
+      <entry key="S30" value="5.458085237197918" />
+      <entry key="S60" value="17.699509140686796" />
+      <entry key="M2" value="39.94403304337137" />
+      <entry key="M5" value="80.15615701467787" />
+      <entry key="M10" value="127.20731060633739" />
+      <entry key="M15" value="174.92731352609732" />
+      <entry key="M30" value="320.3385447675084" />
+      <entry key="H1" value="562.865362570292" />
+      <entry key="H2" value="931.4515031788782" />
+      <entry key="H4" value="1398.660600487614" />
+      <entry key="D1" value="2242.9389331480115" />
+      <entry key="W1" value="2467.392062826528" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="5.090260768534339E-137" />
-      <entry key="S5" value="3.4224752245491934E-55" />
-      <entry key="S10" value="7.483190139382102E-28" />
-      <entry key="S30" value="1.4226640989629252E-9" />
-      <entry key="S60" value="6.027844205798974E-5" />
-      <entry key="M2" value="0.01682774684593272" />
-      <entry key="M5" value="0.8746607123653244" />
-      <entry key="M10" value="4.269311843795046" />
-      <entry key="M15" value="7.764214587311287" />
-      <entry key="M30" value="15.745908431338691" />
-      <entry key="H1" value="26.80843681729697" />
-      <entry key="H2" value="42.85170223932044" />
-      <entry key="H4" value="62.14483244494693" />
-      <entry key="D1" value="95.02830110910048" />
-      <entry key="W1" value="103.48096140374022" />
+      <entry key="MS500" value="3.56470161482352E-309" />
+      <entry key="S2" value="7.726908966881156E-78" />
+      <entry key="S5" value="1.4295597710816293E-31" />
+      <entry key="S10" value="3.780951958279328E-16" />
+      <entry key="S30" value="7.231033722376432E-6" />
+      <entry key="S60" value="0.002689151009106497" />
+      <entry key="M2" value="0.05217052175597604" />
+      <entry key="M5" value="0.3612491061822578" />
+      <entry key="M10" value="1.2042168197949477" />
+      <entry key="M15" value="2.7031071770719772" />
+      <entry key="M30" value="8.729465586481101" />
+      <entry key="H1" value="20.04812073428621" />
+      <entry key="H2" value="37.467817437200395" />
+      <entry key="H4" value="58.83540705423497" />
+      <entry key="D1" value="96.36698776556024" />
+      <entry key="W1" value="106.22100811989081" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9973730310145945" />
-      <entry key="MS500" value="1.5386077913946126" />
-      <entry key="S2" value="3.1357252146679917" />
-      <entry key="S5" value="5.179287503210973" />
-      <entry key="S10" value="6.798926330053364" />
-      <entry key="S30" value="11.104866893418732" />
-      <entry key="S60" value="18.944463472151813" />
-      <entry key="M2" value="33.974911635843995" />
-      <entry key="M5" value="69.5643262284793" />
-      <entry key="M10" value="131.38630169811447" />
-      <entry key="M15" value="193.98539673580436" />
-      <entry key="M30" value="350.2104926161993" />
-      <entry key="H1" value="577.167253470982" />
-      <entry key="H2" value="925.0226451768827" />
-      <entry key="H4" value="1366.3591404263987" />
-      <entry key="D1" value="2142.6225958163564" />
-      <entry key="W1" value="2344.625581824647" />
+      <entry key="MS100" value="0.962143551390286" />
+      <entry key="MS500" value="1.302073603619821" />
+      <entry key="S2" value="1.7443119106476124" />
+      <entry key="S5" value="1.8887708146794975" />
+      <entry key="S10" value="1.9624260949328594" />
+      <entry key="S30" value="5.456728737321042" />
+      <entry key="S60" value="17.698976652669693" />
+      <entry key="M2" value="39.99130065198033" />
+      <entry key="M5" value="80.50938566200507" />
+      <entry key="M10" value="128.39550484740224" />
+      <entry key="M15" value="177.6061530211623" />
+      <entry key="M30" value="329.0306993913763" />
+      <entry key="H1" value="582.8722631752324" />
+      <entry key="H2" value="968.8802758491828" />
+      <entry key="H4" value="1457.4641297144046" />
+      <entry key="D1" value="2339.2967687762075" />
+      <entry key="W1" value="2573.6116160406755" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -142,7 +150,32 @@
       <recent name="C:\Users\Jack\PycharmProjects\chip8python" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for tests.chip8test.MyTestCase">
+  <component name="RunManager" selected="Python.python chip8py.py &lt;your chip8 rom&gt;.ch8">
+    <configuration name="python chip8py.py &lt;your chip8 rom&gt;.ch8" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="chip8python" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="chip8py.py" />
+      <option name="PARAMETERS" value="&lt;your chip8 rom&gt;.ch8" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests for tests.chip8test.MyTestCase" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="chip8python" />
       <option name="ENV_FILES" value="" />
@@ -158,24 +191,6 @@
       <option name="RUN_TOOL" value="" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;tests.chip8test.MyTestCase&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for tests.chip8test.MyTestCase.test_clear" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="chip8python" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="RUN_TOOL" value="" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.chip8test.MyTestCase.test_clear&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -235,11 +250,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.python chip8py.py &lt;your chip8 rom&gt;.ch8" />
         <item itemvalue="Python tests.Python tests for tests.chip8test.MyTestCase" />
         <item itemvalue="Python tests.Python tests for tests.chip8test.MyTestCase.test_set_reg_normal" />
         <item itemvalue="Python tests.Python tests for tests.chip8test.MyTestCase.test_pc_2" />
         <item itemvalue="Python tests.Python tests for tests.chip8test.MyTestCase.test_pc_1" />
-        <item itemvalue="Python tests.Python tests for tests.chip8test.MyTestCase.test_clear" />
       </list>
     </recent_temporary>
   </component>
@@ -306,6 +321,8 @@
       <workItem from="1780858180934" duration="819000" />
       <workItem from="1780944649308" duration="2011000" />
       <workItem from="1780971934686" duration="2429000" />
+      <workItem from="1780974559150" duration="144000" />
+      <workItem from="1780982054237" duration="2359000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -443,7 +460,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780954422752</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="continued adding opcode includng key handling">
+      <option name="closed" value="true" />
+      <created>1780974627817</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1780974627817</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -465,12 +490,13 @@
     <MESSAGE value="fixed 8xy5, 8xy6" />
     <MESSAGE value="Added a few comments and tests" />
     <MESSAGE value="implemented sound and delay timer, proper chip-8 timing, and a few FXNN opcodes" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented sound and delay timer, proper chip-8 timing, and a few FXNN opcodes" />
+    <MESSAGE value="continued adding opcode includng key handling" />
+    <option name="LAST_COMMIT_MESSAGE" value="continued adding opcode includng key handling" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/chip8python$chip8.coverage" NAME="chip8 Coverage Results" MODIFIED="1780770355230" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/chip8python$chip8.coverage" NAME="chip8 Coverage Results" MODIFIED="1780983084041" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/chip8python$gui.coverage" NAME="gui Coverage Results" MODIFIED="1779916944432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />
-    <SUITE FILE_PATH="coverage/chip8python$main.coverage" NAME="main Coverage Results" MODIFIED="1780974499234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/chip8python$.coverage" NAME=" Coverage Results" MODIFIED="1780972817381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/chip8python$main.coverage" NAME="main Coverage Results" MODIFIED="1780983285868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/chip8python$.coverage" NAME=" Coverage Results" MODIFIED="1780982522819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

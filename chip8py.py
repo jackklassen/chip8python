@@ -1,5 +1,13 @@
+"""
+Copyright Jack Klassen
+
+CHIP-8 emulator/interpretor
+
+See License and ReadMe for more info
+"""
+
 import sys
-from src import chip8
+from src import cpu
 from src.gui import Gui
 
 
@@ -16,9 +24,9 @@ def main():
 
 #testing
 #def main():
- #   gui_main = Gui()
-  #  gui_main.load_rom("test_opcode.ch8")
-   # gui_main.run()
+#    gui_main = Gui()
+#    gui_main.load_rom("airplane.ch8")
+#    gui_main.run()
 
 if __name__ == '__main__':
    main()

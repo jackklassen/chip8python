@@ -1,7 +1,12 @@
-import os
-from random import randint
-from typing import Any
+"""
+Copyright Jack Klassen
 
+CHIP-8 emulator/interpretor
+
+See License and ReadMe for more info
+"""
+
+from random import randint
 
 START_ADDRESS = 0x200
 
@@ -33,11 +38,10 @@ class Chip8:
     #pc = 0  #program counter, current instruction in memory
     #stack = [0] * 16  #16 bytes of stack
     #sp = 0  #address for stack pointer
-    delayTimer = 0
-    soundTimer = 0
-    keypad = [0] * 16  #16 slots for the 16 possible keyinputs
 
-    opcode = 0
+    #keypad = [0] * 16  #16 slots for the 16 possible key inputs
+
+    #opcode = 0
 
     def __init__(self):
         self.registers = [0] * 16  # 16 registers
@@ -49,16 +53,15 @@ class Chip8:
         self.wait_on_key = False
         self.neededKey = None #connected to wait on key, when waiting, this holds a key we need.
         self.pressedKey = None #to be set when gui sends it to cpu
-        opcode = 0
         self.index = 0
         self.memory = [0] * 4096
 
         for i in range(64):
             self.memory[i] = FONT_SET[i]
 
-        #self.load_rom(romfile)
 
-    def handleTimers(self):
+
+    def handle_timers(self):
         if self.delayTimer > 0:
             self.delayTimer -= 1
         if self.soundTimer > 0:
@@ -84,7 +87,7 @@ class Chip8:
         opcode = (self.memory[self.pc] << 8) | self.memory[self.pc + 1]
             #pc must increment somewhere might as well be here
         self.pc += 2
-        self.handleTimers()
+        self.handle_timers()
         first_hexit = (opcode & 0xF000) >> 12
 
             #Decode Execute
@@ -132,8 +135,7 @@ class Chip8:
             print("0 was called")
             #self.screen.fill((0, 0, 0))
             #pygame.display.flip()
-            for i in self.video:
-                self.video[i] = 0
+            self.video = [0] * (64 * 32)
     #1NNN, Jump to NNN
     def opcode_1(self, opcode):
         print("1 was called")
@@ -224,7 +226,7 @@ class Chip8:
         elif n==0x6:
             shifted_bit = self.registers[vx_reg] & 0x1
 
-            self.registers[vx_reg] = self.registers[vx_reg] >> 1
+            self.registers[vx_reg] = (self.registers[vx_reg] >> 1) & 0xFF
             self.registers[0xF] = shifted_bit
 
         elif n == 0x7:
@@ -236,8 +238,8 @@ class Chip8:
                 self.registers[vx_reg] = 256 + self.registers[vy_reg] - self.registers[vx_reg]
 
         elif n == 0xE:
-            shifted_bit = self.registers[vx_reg] & 0x1
-            self.registers[vx_reg] = self.registers[vx_reg] << 1
+            shifted_bit = self.registers[vx_reg] & 0x80
+            self.registers[vx_reg] = (self.registers[vx_reg] << 1) & 0xFF
             self.registers[0xF] = shifted_bit
 
     #9XY0 skip 1 instruction if reg[vx] == reg[vy]
@@ -249,7 +251,7 @@ class Chip8:
         if not self.registers[vx_reg] == self.registers[vy_reg]:
             self.pc += 2
 
-    #ANNN, set the index regiseter to NNN
+    #ANNN, set the index register to NNN
     def opcode_A(self, opcode):
         print("A was called")
         nnn_hexits = opcode & 0x0FFF
@@ -258,8 +260,9 @@ class Chip8:
 
     #BNNN, Jump with an offset
     def opcode_B(self, opcode):
-        #todo: this
-        pass
+        nnn_hexits = opcode & 0x0FFF
+        self.pc = nnn_hexits + self.registers[0]
+
 
     #CXNN, put a random added with into vx
     def opcode_C(self,opcode):
@@ -319,11 +322,12 @@ class Chip8:
             self.wait_on_key = True
             self.neededKey = self.registers[vx_reg]
         elif nn_hexit == 0x29:
-            self.index = self.memory[self.registers[vx_reg]] #point index to font char in mem, its first thing in mem
+            self.index = self.registers[vx_reg] * 5 #point index to font char in mem, its first thing in mem
         elif nn_hexit == 0x33:
-            pass
-            #todo: this
-            # Binary-coded decimal conversion
+            number_to_distribute = str(int(self.registers[vx_reg]))
+            for i,char in enumerate(number_to_distribute):
+                self.memory[self.index + i] = int(char)
+
         elif nn_hexit == 0x55:
             for i in range(vx_reg + 1):
                 self.memory[self.index + i] = self.registers[i]

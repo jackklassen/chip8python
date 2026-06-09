@@ -1,13 +1,21 @@
+"""
+Copyright Jack Klassen
+
+CHIP-8 emulator/interpretor
+
+See License and ReadMe for more info
+"""
+
 import unittest
 
-from src import chip8
+from src import cpu
 START_ADDRESS = 0x200
 
 
 class MyTestCase(unittest.TestCase):
 
     def setUp(self):
-        self.cpu_test = chip8.Chip8()
+        self.cpu_test = cpu.Chip8()
 
 
     def test_clear(self):
