@@ -12,7 +12,7 @@ from src import cpu
 START_ADDRESS = 0x200
 
 
-class MyTestCase(unittest.TestCase):
+class chip8_test(unittest.TestCase):
 
     def setUp(self):
         self.cpu_test = cpu.Chip8()
