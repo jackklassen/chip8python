@@ -130,7 +130,9 @@ class Chip8:
     def opcode_0(self, opcode):
         if opcode == 0x00EE:
             print("00EE was called")
-            self.pc = self.stack.pop()
+            new_pc = self.stack.pop()
+            if new_pc:
+                self.pc = new_pc
         else:
             print("0 was called")
             #self.screen.fill((0, 0, 0))

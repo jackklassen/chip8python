@@ -12,7 +12,7 @@ from src import cpu
 START_ADDRESS = 0x200
 
 
-class MyTestCase(unittest.TestCase):
+class chip8_test(unittest.TestCase):
 
     def setUp(self):
         self.cpu_test = cpu.Chip8()
@@ -57,6 +57,67 @@ class MyTestCase(unittest.TestCase):
         self.cpu_test.opcode_6(opcode)
         self.assertEqual(self.cpu_test.registers[0x0], 0)
 
+
+
+    #negative test
+    def test_pop_from_empty_stack(self):
+        opcode = 0x00EE
+        self.assertEqual(self.cpu_test.pc, START_ADDRESS) #without calling cycle pc doesnt move
+        self.cpu_test.opcode_0(opcode)
+        self.assertEqual(self.cpu_test.pc, START_ADDRESS) #and with nothing on the stack pc should not change
+
+
+
+    #timers
+
+
+    #postive test
+
+    #negative test
+
+    #boundry test
+
+
+    #load rom
+
+    #postive test
+
+    #negative test
+
+    #boundry test
+
+
+
+    #opcode_C (random)
+
+    #postive test
+
+    #negative test
+
+    #boundry test
+
+
+    #opcode_7 (add to register, make sure register doesn't overload)
+
+    #postive test
+
+    #negative test
+
+    #boundry test
+
+    #DXYN tests
+
+    #postive (normal)
+
+    #negative an imgage of nothing
+
+    #boundry go off the map
+
+
+    #opcode 8 tests
+
+
+    #opcode F tests
 
 if __name__ == '__main__':
     unittest.main()

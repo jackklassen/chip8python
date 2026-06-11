@@ -22,11 +22,6 @@ def main():
         gui_main.load_rom(rom)
         gui_main.run()
 
-#testing
-#def main():
-#    gui_main = Gui()
-#    gui_main.load_rom("airplane.ch8")
-#    gui_main.run()
 
 if __name__ == '__main__':
    main()
