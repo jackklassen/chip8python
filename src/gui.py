@@ -1,7 +1,7 @@
 """
 Copyright Jack Klassen
 
-CHIP-8 emulator/interpretor
+CHIP-8 emulator/interpreter
 
 See License and ReadMe for more info
 """
@@ -11,6 +11,7 @@ import time
 import pygame
 
 from src import cpu
+BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 SCALE = 10
 
@@ -90,7 +91,7 @@ class Gui:
         return self.cpu.load_rom(filename)
 
     def render(self):
-        self.screen.fill((0, 0, 0))
+        self.screen.fill(BLACK)
         for i, pixel in enumerate(self.cpu.video):
             if pixel:
                 x = (i % 64) * SCALE

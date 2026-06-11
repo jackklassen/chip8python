@@ -1,7 +1,7 @@
 """
 Copyright Jack Klassen
 
-CHIP-8 emulator/interpretor
+CHIP-8 emulator/interpreter
 
 See License and ReadMe for more info
 """
@@ -250,7 +250,7 @@ class Chip8:
             self.registers[vx_reg] = (self.registers[vx_reg] << 1) & 0xFF
             self.registers[0xF] = shifted_bit
 
-    #9XY0 skip 1 instruction if reg[vx] == reg[vy]
+    #9XY0 skip 1 instruction if reg[vx] =/= reg[vy]
     def opcode_9(self, opcode):
         print("9 was called")
         vx_reg = (opcode & 0x0F00) >> 8

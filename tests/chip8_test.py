@@ -1,7 +1,7 @@
 """
 Copyright Jack Klassen
 
-CHIP-8 emulator/interpretor
+CHIP-8 emulator/interpreter
 
 See License and ReadMe for more info
 """
@@ -42,6 +42,52 @@ class chip8_test(unittest.TestCase):
         self.assertEqual(self.cpu_test.pc, START_ADDRESS)
 
 
+    #opcode_3
+    def test_opcode_3_pos(self):
+        opcode = 0x3101
+        self.cpu_test.registers[0x1] = 0x1
+        self.cpu_test.opcode_3(opcode)
+        assert(self.cpu_test.pc == START_ADDRESS + 2)
+
+    def test_opcode_3_neg(self):
+        opcode = 0x3101
+        self.cpu_test.registers[0x1] = 0x2
+        self.cpu_test.opcode_3(opcode)
+        assert(self.cpu_test.pc == START_ADDRESS)
+        assert(self.cpu_test.pc != START_ADDRESS + 2)
+
+    #opcode 4
+    def test_opcode_4_pos(self):
+        opcode = 0x4101
+        self.cpu_test.registers[0x1] = 0x1
+        self.cpu_test.opcode_4(opcode)
+        assert (self.cpu_test.pc == START_ADDRESS)
+        assert (self.cpu_test.pc != START_ADDRESS + 2)
+
+    def test_opcode_4_neg(self):
+        opcode = 0x4101
+        self.cpu_test.registers[0x1] = 0x2
+        self.cpu_test.opcode_4(opcode)
+        assert (self.cpu_test.pc == START_ADDRESS + 2)
+
+    #opcode 5
+    def test_opcode_5_pos(self):
+        opcode = 0x5100
+        self.cpu_test.registers[0x1] = 0x1
+        self.cpu_test.registers[0x0] = 0x1
+        self.cpu_test.opcode_5(opcode)
+        assert (self.cpu_test.pc == START_ADDRESS + 2)
+
+
+    def test_opcode_5_neg(self):
+        opcode = 0x5100
+        self.cpu_test.registers[0x1] = 0x2
+        self.cpu_test.registers[0x0] = 0x1
+        self.cpu_test.opcode_5(opcode)
+        assert (self.cpu_test.pc == START_ADDRESS)
+
+
+    #opcode 6
     def test_set_reg_normal(self):
         opcode = 0x6111
         self.cpu_test.opcode_6(opcode)
@@ -171,7 +217,60 @@ class chip8_test(unittest.TestCase):
 
     #opcode 8 tests
 
+    # opcode 9
+    def test_opcode_9_pos(self):
+        opcode = 0x9100
+        self.cpu_test.registers[0x1] = 0x1
+        self.cpu_test.registers[0x0] = 0x1
+        self.cpu_test.opcode_9(opcode)
+        assert (self.cpu_test.pc == START_ADDRESS)
 
+    def test_opcode_9_neg(self):
+        opcode = 0x9100
+        self.cpu_test.registers[0x1] = 0x2
+        self.cpu_test.registers[0x0] = 0x1
+        self.cpu_test.opcode_9(opcode)
+        assert (self.cpu_test.pc == START_ADDRESS + 2)
+
+    #opcdode_A tests
+    #postive
+    def test_opcode_A_pos(self):
+        opcode = 0xA111
+        self.cpu_test.opcode_A(opcode)
+        assert(self.cpu_test.index == 0x111)
+    #boundry
+    def test_opcode_A_FFF(self):
+        opcode = 0xAFFF
+        self.cpu_test.opcode_A(opcode)
+        assert(self.cpu_test.index == 0xFFF)
+
+    def test_opcode_A_0(self):
+        opcode = 0xA000
+        self.cpu_test.opcode_A(opcode)
+        assert(self.cpu_test.index == 0x0)
+
+
+    #opcode_B tests
+
+    #positive
+    def test_opcode_B_pos(self):
+        opcode = 0xB111
+        self.cpu_test.registers[0x0] = 0x01
+        self.cpu_test.opcode_B(opcode)
+        self.assertEqual(self.cpu_test.pc, (0x1 + 0x0111))
+    #boundry
+
+    def test_opcode_B_FFF(self):
+        opcode = 0xBFFF
+        self.cpu_test.registers[0x0] = 0xFF
+        self.cpu_test.opcode_B(opcode)
+        self.assertEqual(self.cpu_test.pc, (0xFF + 0xFFF))
+
+    def test_opcode_B_0(self):
+        opcode = 0xB000
+        self.cpu_test.registers[0x0] = 0x00
+        self.cpu_test.opcode_B(opcode)
+        self.assertEqual(self.cpu_test.pc, 0)
     #opcode F tests
 
 if __name__ == '__main__':

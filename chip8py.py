@@ -1,7 +1,7 @@
 """
 Copyright Jack Klassen
 
-CHIP-8 emulator/interpretor
+CHIP-8 emulator/interpreter
 
 See License and ReadMe for more info
 """
