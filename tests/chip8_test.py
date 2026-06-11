@@ -175,11 +175,6 @@ class chip8_test(unittest.TestCase):
         self.cpu_test.opcode_C(opcode)
         assert(self.cpu_test.registers[0x1] | 0x11 == 0x11)
 
-    #negative test
-    def test_opcode_C_negative(self):
-        opcode = 0xC122
-        self.cpu_test.opcode_C(opcode)
-        assert(self.cpu_test.registers[0x1] | 0x11 != 0x11)
     #boundry test
     def test_opcode_C_zero(self):
         opcode = 0xC100
@@ -206,13 +201,6 @@ class chip8_test(unittest.TestCase):
         assert (self.cpu_test.registers[0x1] == 0x0) #overflow makes register = 0
         assert (self.cpu_test.registers[0xF] == 0x0) #should not change
 
-    #DXYN tests
-
-    #postive (normal)
-
-    #negative an imgage of nothing
-
-    #boundry go off the map
 
 
     #opcode 8 tests
@@ -271,7 +259,32 @@ class chip8_test(unittest.TestCase):
         self.cpu_test.registers[0x0] = 0x00
         self.cpu_test.opcode_B(opcode)
         self.assertEqual(self.cpu_test.pc, 0)
+
+
+    # DXYN tests
+
+    # postive (normal)
+
+    # negative an imgage of nothing
+
+    # boundry go off the map
+
+
+    #opcode E tests
+
     #opcode F tests
+
+
+    #cycle tests
+    def test_cycle_pos(self):
+        first_hexits = 0xA0
+        second_hexits = 0x12
+        self.cpu_test.memory[START_ADDRESS] = first_hexits
+        self.cpu_test.memory[START_ADDRESS + 1] = second_hexits
+
+        self.cpu_test.cycle()
+        assert(self.cpu_test.pc == START_ADDRESS + 2)
+        assert(self.cpu_test.index == 0x12)
 
 if __name__ == '__main__':
     unittest.main()

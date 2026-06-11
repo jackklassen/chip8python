@@ -115,6 +115,8 @@ class Chip8:
             self.opcode_7(opcode)
         elif first_hexit == 0x8:
             self.opcode_8(opcode)
+        elif first_hexit == 0x9:
+            self.opcode_9(opcode)
         elif first_hexit == 0xA:
             self.opcode_A(opcode)
         elif first_hexit == 0xB:
