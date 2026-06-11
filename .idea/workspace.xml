@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="495ab933-4558-4734-81e3-6426043ca98c" name="Changes" comment="Completed first fully working version">
+      <change afterPath="$PROJECT_DIR$/tests/test_rom.ch8" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chip8py.py" beforeDir="false" afterPath="$PROJECT_DIR$/chip8py.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cpu.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cpu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/chip8test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/chip8_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/chip8_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/chip8_test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,14 +109,22 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python tests.Python tests for tests.chip8_test.chip8_test.executor": "Run",
+    "Python tests.Python tests for tests.chip8_test.chip8_test.test_load_rom_nothing.executor": "Run",
+    "Python tests.Python tests for tests.chip8_test.chip8_test.test_opcode_7_negative.executor": "Run",
+    "Python tests.Python tests for tests.chip8_test.chip8_test.test_opcode_7_pos.executor": "Run",
+    "Python tests.Python tests for tests.chip8_test.chip8_test.test_opcode_C.executor": "Run",
+    "Python tests.Python tests for tests.chip8_test.chip8_test.test_opcode_C_negative.executor": "Run",
+    "Python tests.Python tests for tests.chip8_test.chip8_test.test_opcode_C_zero.executor": "Run",
     "Python tests.Python tests for tests.chip8_test.chip8_test.test_pop_from_empty_stack.executor": "Run",
+    "Python tests.Python tests for tests.chip8_test.chip8_test.test_timer_neg.executor": "Run",
+    "Python tests.Python tests for tests.chip8_test.chip8_test.test_timer_zero.executor": "Run",
     "Python tests.Python tests for tests.chip8test.MyTestCase.executor": "Run",
     "Python tests.Python tests for tests.chip8test.MyTestCase.test_clear.executor": "Run",
     "Python tests.Python tests for tests.chip8test.MyTestCase.test_pc_1.executor": "Run",
     "Python tests.Python tests for tests.chip8test.MyTestCase.test_pc_2.executor": "Run",
     "Python tests.Python tests for tests.chip8test.MyTestCase.test_set_reg_normal.executor": "Run",
     "Python tests.Python tests for tests.chip8test.MyTestCase.test_something.executor": "Run",
-    "Python tests.Python tests in chip8_test.py.executor": "Coverage",
+    "Python tests.Python tests in chip8_test.py.executor": "Run",
     "Python.chip8.executor": "Run",
     "Python.gui.executor": "Run",
     "Python.main.executor": "Run",
@@ -154,33 +162,8 @@
       <recent name="C:\Users\Jack\PycharmProjects\chip8python" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests in chip8_test.py">
-    <configuration name="python chip8py.py &lt;your chip8 rom&gt;.ch8" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="chip8python" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="chip8py.py" />
-      <option name="PARAMETERS" value="&lt;your chip8 rom&gt;.ch8" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests for tests.chip8_test.chip8_test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python tests.Python tests for tests.chip8_test.chip8_test.test_opcode_7_negative">
+    <configuration name="Python tests for tests.chip8_test.chip8_test.test_opcode_7_negative" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="chip8python" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -190,15 +173,14 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.chip8_test.chip8_test&quot;" />
+      <option name="_new_target" value="&quot;tests.chip8_test.chip8_test.test_opcode_7_negative&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for tests.chip8_test.chip8_test.test_pop_from_empty_stack" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for tests.chip8_test.chip8_test.test_opcode_7_pos" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="chip8python" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -208,15 +190,14 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.chip8_test.chip8_test.test_pop_from_empty_stack&quot;" />
+      <option name="_new_target" value="&quot;tests.chip8_test.chip8_test.test_opcode_7_pos&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for tests.chip8_test.chip8_test.test_set_reg_normal" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for tests.chip8_test.chip8_test.test_opcode_C" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="chip8python" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -226,15 +207,14 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;tests.chip8_test.chip8_test.test_set_reg_normal&quot;" />
+      <option name="_new_target" value="&quot;tests.chip8_test.chip8_test.test_opcode_C&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests in chip8_test.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for tests.chip8_test.chip8_test.test_opcode_C_negative" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="chip8python" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -244,21 +224,37 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="DEBUG_JUST_MY_CODE" value="false" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="RUN_TOOL" value="" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests/chip8_test.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="_new_target" value="&quot;tests.chip8_test.chip8_test.test_opcode_C_negative&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.chip8_test.chip8_test.test_opcode_C_zero" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="chip8python" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="RUN_TOOL" value="" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.chip8_test.chip8_test.test_opcode_C_zero&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests in chip8_test.py" />
-        <item itemvalue="Python tests.Python tests for tests.chip8_test.chip8_test" />
-        <item itemvalue="Python tests.Python tests for tests.chip8_test.chip8_test.test_pop_from_empty_stack" />
-        <item itemvalue="Python.python chip8py.py &lt;your chip8 rom&gt;.ch8" />
-        <item itemvalue="Python tests.Python tests for tests.chip8_test.chip8_test.test_set_reg_normal" />
+        <item itemvalue="Python tests.Python tests for tests.chip8_test.chip8_test.test_opcode_7_negative" />
+        <item itemvalue="Python tests.Python tests for tests.chip8_test.chip8_test.test_opcode_7_pos" />
+        <item itemvalue="Python tests.Python tests for tests.chip8_test.chip8_test.test_opcode_C_zero" />
+        <item itemvalue="Python tests.Python tests for tests.chip8_test.chip8_test.test_opcode_C_negative" />
+        <item itemvalue="Python tests.Python tests for tests.chip8_test.chip8_test.test_opcode_C" />
       </list>
     </recent_temporary>
   </component>
@@ -510,10 +506,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Completed first fully working version" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/chip8python$.coverage" NAME=" Coverage Results" MODIFIED="1781215251418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/chip8python$python_chip8py_py__your_chip8_rom__ch8.coverage" NAME="python chip8py.py &lt;your chip8 rom&gt;.ch8 Coverage Results" MODIFIED="1780984542399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/chip8python$main.coverage" NAME="main Coverage Results" MODIFIED="1780983285868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/chip8python$chip8.coverage" NAME="chip8 Coverage Results" MODIFIED="1780983084041" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/chip8python$gui.coverage" NAME="gui Coverage Results" MODIFIED="1779916944432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui" />
-    <SUITE FILE_PATH="coverage/chip8python$main.coverage" NAME="main Coverage Results" MODIFIED="1780983285868" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/chip8python$.coverage" NAME=" Coverage Results" MODIFIED="1781194913822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

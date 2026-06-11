@@ -72,38 +72,93 @@ class chip8_test(unittest.TestCase):
 
 
     #postive test
+    def test_timer_pos(self):
+        self.cpu_test.soundTimer = 2
+        self.cpu_test.delayTimer = 2
+
+        self.cpu_test.handle_timers()
+        assert(self.cpu_test.delayTimer == 1)
+        assert (self.cpu_test.soundTimer == 1)
+
 
     #negative test
 
+    def test_timer_neg(self):
+        self.cpu_test.soundTimer = -1
+        self.cpu_test.delayTimer = -1
+        assert (self.cpu_test.delayTimer == -1)
+        assert (self.cpu_test.soundTimer == -1)
+        self.cpu_test.handle_timers()
+        assert(self.cpu_test.delayTimer == 0)
+        assert (self.cpu_test.soundTimer == 0)
+
+
     #boundry test
+
+    def test_timer_zero(self):
+        self.cpu_test.soundTimer = 0
+        self.cpu_test.delayTimer = 0
+        self.cpu_test.handle_timers()
+        assert (self.cpu_test.delayTimer == 0)
+        assert (self.cpu_test.soundTimer == 0)
 
 
     #load rom
 
     #postive test
+    def test_load_rom_nothing(self):
+        assert(self.cpu_test.load_rom("test_rom.ch8") == 1)
+
+        assert (self.cpu_test.memory[START_ADDRESS] != 0x0)
+        assert (self.cpu_test.memory[START_ADDRESS + 1] != 0x0)
+
 
     #negative test
+    def test_load_rom_nothing(self):
+        assert(self.cpu_test.load_rom("") == 0)
 
-    #boundry test
-
+        assert(self.cpu_test.memory[START_ADDRESS] == 0x0)
+        assert(self.cpu_test.memory[START_ADDRESS + 1] == 0x0)
 
 
     #opcode_C (random)
 
     #postive test
+    def test_opcode_C_pos(self):
+        opcode = 0xC111
+        self.cpu_test.opcode_C(opcode)
+        assert(self.cpu_test.registers[0x1] | 0x11 == 0x11)
 
     #negative test
-
+    def test_opcode_C_negative(self):
+        opcode = 0xC122
+        self.cpu_test.opcode_C(opcode)
+        assert(self.cpu_test.registers[0x1] | 0x11 != 0x11)
     #boundry test
-
+    def test_opcode_C_zero(self):
+        opcode = 0xC100
+        self.cpu_test.opcode_C(opcode)
+        assert(self.cpu_test.registers[0x1] == 0x0)
 
     #opcode_7 (add to register, make sure register doesn't overload)
 
     #postive test
+    def test_opcode_7_pos(self):
+        opcode = 0x7101
+        assert(self.cpu_test.registers[0x1] == 0x0)
+        self.cpu_test.opcode_7(opcode)
+        assert (self.cpu_test.registers[0x1] == 0x1)
+        self.cpu_test.opcode_7(opcode)
+        assert (self.cpu_test.registers[0x1] == 0x2)
 
     #negative test
-
-    #boundry test
+    def test_opcode_7_negative(self):
+        opcode = 0x7101
+        self.cpu_test.registers[0x1] = 0xFF
+        assert (self.cpu_test.registers[0x1] == 0xFF)
+        self.cpu_test.opcode_7(opcode)
+        assert (self.cpu_test.registers[0x1] == 0x0) #overflow makes register = 0
+        assert (self.cpu_test.registers[0xF] == 0x0) #should not change
 
     #DXYN tests
 

@@ -5,7 +5,7 @@ CHIP-8 emulator/interpretor
 
 See License and ReadMe for more info
 """
-
+from pathlib import Path
 from random import randint
 
 START_ADDRESS = 0x200
@@ -62,6 +62,10 @@ class Chip8:
 
 
     def handle_timers(self):
+        if self.delayTimer < 0:
+            self.delayTimer = 0
+        if self.soundTimer < 0:
+            self.soundTimer = 0
         if self.delayTimer > 0:
             self.delayTimer -= 1
         if self.soundTimer > 0:
@@ -69,13 +73,15 @@ class Chip8:
 
 
     def load_rom(self, file_name):
+        if not Path(file_name).is_file():
+            return 0
         with open(file_name, 'rb') as f:
             buffer = f.read()
 
         for i, byte in enumerate(buffer):
             if START_ADDRESS + i < 4095:
                 self.memory[i + START_ADDRESS] = byte
-
+        return 1
     def cycle(self):
         # self.pc = 0x200
         #while (self.pc < 4096):
@@ -187,7 +193,7 @@ class Chip8:
 
         self.registers[second_hexit] = nn_hexit
 
-    #7XNN, add NN to reg[vx]
+    #7XNN, add NN to reg[vx], on overflow do not affect the VF register
     def opcode_7(self, opcode):
         print("7 was called")
         second_hexit = (opcode & 0x0F00) >> 8
@@ -266,7 +272,7 @@ class Chip8:
         self.pc = nnn_hexits + self.registers[0]
 
 
-    #CXNN, put a random added with into vx
+    #CXNN, put a random added with NN into vx
     def opcode_C(self,opcode):
         print("C was called")
         vx_reg = (opcode & 0x0F00) >> 8
