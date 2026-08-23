@@ -1,4 +1,4 @@
-![GitHub Release](https://img.shields.io/github/v/release/jackklassen/chip8python) ![GitHub License](https://img.shields.io/github/license/jackklassen/chip8python) 
+![GitHub Release](https://img.shields.io/github/v/release/jackklassen/chip8python) ![GitHub License](https://img.shields.io/github/license/jackklassen/chip8python)  ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/jackklassen/chip8python/.github%2Fworkflows%2Fpython-app.yml)
 
 ## About
 🎮 Chip-8 Interpreter / Emulator  in Python and Pygame. 
