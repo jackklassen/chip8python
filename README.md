@@ -9,4 +9,9 @@ Based on the excellent [guide](https://tobiasvl.github.io/blog/write-a-chip-8-em
 To use, `pip install -r requirements.txt`, then `python chip8py.py <your chip8 rom>.ch8`, replacing 
 `<your chip8 rom>` with your chosen chip-8 rom. 
 
-The keypad follows normal Chip-8 emulator conventions
+The keypad follows normal Chip-8 emulator conventions   
+
+1	2	3	C  
+4	5	6	D  
+7	8	9	E  
+A	0	B	F  
