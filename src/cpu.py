@@ -32,16 +32,6 @@ FONT_SET = [
 
 
 class Chip8:
-    #registers = [0] * 16  #16 registers
-    #memory = [0] * 4096  #4096 bytes of memory
-    #index = 0  #16-bit index that points to location in memory
-    #pc = 0  #program counter, current instruction in memory
-    #stack = [0] * 16  #16 bytes of stack
-    #sp = 0  #address for stack pointer
-
-    #keypad = [0] * 16  #16 slots for the 16 possible key inputs
-
-    #opcode = 0
 
     def __init__(self):
         self.registers = [0] * 16  # 16 registers

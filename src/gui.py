@@ -11,6 +11,7 @@ import time
 import pygame
 
 from src import cpu
+SLEEP_TIME = 1/60
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 SCALE = 10
@@ -83,7 +84,7 @@ class Gui:
 
             pygame.display.flip()
             self.render()
-            time.sleep(1/60)
+            time.sleep(SLEEP_TIME)
         # Quit pygame
         pygame.quit()
 
