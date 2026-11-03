@@ -263,9 +263,9 @@ class chip8_test(unittest.TestCase):
 
     # DXYN tests
 
-    # postive (normal)
+    # positive (normal)
 
-    # negative an imgage of nothing
+    # negative an image of nothing
 
     # boundry go off the map
 
